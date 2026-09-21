@@ -9,7 +9,7 @@ class MyApp extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return MaterialApp.router(
       routerConfig: ref.watch(appRouterProvider),
-      title: 'Flutter Demo',
+      title: 'Flutter Architecture Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
