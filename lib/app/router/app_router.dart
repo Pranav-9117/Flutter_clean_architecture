@@ -31,7 +31,7 @@ class AppRouter {
         }
 
         if (!authState.isAuthenticated) {
-          return isSplashRoute || isAuthRoute ? null : RouteNames.login;
+          return isAuthRoute ? null : RouteNames.login;
         }
 
         return isSplashRoute || isAuthRoute ? RouteNames.dashboard : null;

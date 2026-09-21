@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_architecture_demo/app/router/route_names.dart';
+import 'package:flutter_architecture_demo/features/auth/presentation/providers/auth_notifier.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class AppSideBar extends StatelessWidget {
+class AppSideBar extends ConsumerWidget {
   const AppSideBar({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     String curLocation = GoRouterState.of(context).uri.path;
     return Container(
       width: 250,
@@ -47,6 +49,11 @@ class AppSideBar extends StatelessWidget {
             onTap: () {
               context.go(RouteNames.settings);
             },
+          ),
+          const Spacer(),
+          ListTile(
+            title: const Text('Logout'),
+            onTap: () => ref.read(authProvider.notifier).logout(),
           ),
         ],
       ),

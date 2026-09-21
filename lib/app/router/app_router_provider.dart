@@ -5,5 +5,11 @@ import 'package:go_router/go_router.dart';
 
 final appRouterProvider = Provider<GoRouter>((ref) {
   final authState = ref.watch(authProvider);
-  return AppRouter(authState: authState).appRouter;
+  final router = AppRouter(authState: authState).appRouter;
+
+  ref.listen<AuthState>(authProvider, (_, _) {
+    router.refresh();
+  });
+
+  return router;
 });
