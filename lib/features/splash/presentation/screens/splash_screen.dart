@@ -13,7 +13,17 @@ class SplashScreen extends ConsumerWidget {
       body: Center(
         child: authState.isLoading
             ? const CircularProgressIndicator()
-            : const Text('Redirecting...'),
+            : Stack(
+                alignment: Alignment.center,
+                children: [
+                  Image.asset(
+                    'assets/images/splash_image.png',
+                    width: 200,
+                    height: 200,
+                  ),
+                ],
+                
+              ),
       ),
     );
   }
